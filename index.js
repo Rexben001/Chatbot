@@ -18,7 +18,6 @@ app.get("/", (req, res) => {
 
 app.post("/getmovie", async (req, res) => {
   try {
-    console.log(req.body.result.parameters.movie);
     const movieToSearch =
       req.body.result &&
       req.body.result.parameters &&
@@ -30,7 +29,6 @@ app.post("/getmovie", async (req, res) => {
     //     `http://www.omdbapi.com/?t=${movieToSearch}&apikey=${process.env.API_KEY}`
     //   );
     const reqUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${movieToSearch}`;
-    console.log(movieToSearch, movieToSearch.replace(" ", "%20"));
     //   http.get(
     //     reqUrl,
     //     responseFromAPI => {
@@ -66,7 +64,6 @@ app.post("/getmovie", async (req, res) => {
       dataToSend
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ error });
   }
 });
