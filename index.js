@@ -61,7 +61,8 @@ app.post("/getmovie", async (req, res) => {
     const response = movieResult.data.results[0];
     const dataToSend = `${response.title} was released in the year ${response.release_date}.`;
     res.status(200).json({
-      dataToSend
+      fulfillmentText: dataToSend,
+      source: "getmovie"
     });
   } catch (error) {
     res.status(500).json({ error });
