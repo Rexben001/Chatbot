@@ -19,10 +19,10 @@ app.get("/", (req, res) => {
 app.post("/getmovie", async (req, res) => {
   try {
     const movieToSearch =
-      req.body.result &&
-      req.body.result.parameters &&
-      req.body.result.parameters.movie
-        ? req.body.result.parameters.movie
+      req.body.queryResult &&
+      req.body.queryResult.parameters &&
+      req.body.queryResult.parameters.movie
+        ? req.body.queryResult.parameters.movie
         : "";
 
     //   const reqUrl = encodeURI(
